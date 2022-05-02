@@ -31,3 +31,14 @@ class UserManager:
             raise BadRequest("Wrong email or password")
 
         return user
+
+    @staticmethod
+    def login_approver(user_data):
+        user = ApproverModel.query.filter_by(email=user_data["email"]).first()
+        if not user:
+            raise BadRequest("wrong email or password")
+
+        # if not check_password_hash(user.password, user_data["password"]):
+        #     raise BadRequest("Wrong email ..")
+
+        return user

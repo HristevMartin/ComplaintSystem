@@ -1,4 +1,4 @@
-from resources.auth import Register, Login
+from resources.auth import Register, Login, ApproverLogin
 from resources.complaint import (
     ListCreateComplaint,
     ComplaintDetail,
@@ -8,6 +8,7 @@ from resources.complaint import (
 
 routes = (
     (Register, "/register"),
+    (ApproverLogin, "/approvers/login"),
     (Login, "/login"),
     (ListCreateComplaint, "/complainers/complaints"),
     (ComplaintDetail, "/complainers/complaints/<int:id_>"),

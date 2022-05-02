@@ -24,3 +24,11 @@ class Login(Resource):
         user = UserManager.login(request.get_json())
         token = AuthManager.encode_token(user)
         return {"token": token}, 200  # we only check if the user exists in the database
+
+
+class ApproverLogin(Resource):
+    @validate_schema(ComplainerLoginRequestSchema)
+    def post(self):
+        user = UserManager.login_approver(request.get_json())
+        token = AuthManager.encode_token(user)
+        return {"token": token}, 200
