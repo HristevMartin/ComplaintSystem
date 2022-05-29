@@ -11,13 +11,12 @@ class BaseUser(Schema):  # Schema inherits Schema from marshmallow
     password = fields.String(required=True, validate=validate.Length(min=6, max=255))
 
 
+
 class ComplainerLoginRequestSchema(BaseUser):
     pass
 
 
-class ComplainerRegisterRequestSchema(
-    BaseUser
-):  # for complainer model for register activity
+class ComplainerRegisterRequestSchema(BaseUser):  # for complainer model for register activity
     first_name = fields.String(required=True, validate=validate.Length(min=2, max=255))
     last_name = fields.String(required=True, validate=validate.Length(min=2, max=255))
     phone = fields.String(required=True, validate=validate.Length(min=3, max=13))
